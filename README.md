@@ -1,2 +1,2 @@
-# Micro-Oliva-Template
-Simple template for cms pages.
+# H1
+Micro Oliva Template
