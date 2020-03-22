@@ -1,2 +1,1 @@
-# H1
-Micro Oliva Template
+# Micro Oliva Template
