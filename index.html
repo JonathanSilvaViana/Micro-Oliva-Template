@@ -88,30 +88,34 @@
        Table    
       </h1>
       
-      <div class="input-field col md8 s12">
-          <input id="small-search" type="search" class="validate search" required>
-          <label for="small-search">
-              <span class="material-icons">
-                search
-              </span>
-          </label>
-        </div>
+
       
       <form>
       
       <div class="row center" id="data-table-content">
-        <!--converter table para ul/li -->
-        <table class="highlight centered responsive-table striped green accent-2 list">
-        <thead>
-          <tr class="white-text">
-              <th>Table title 0</th>
-              <th>Table title 1</th>
-              <th>Table title 2</th>
-              <th>Table title 3</th>
-          </tr>
-        </thead>
-
-        <tbody>
+      
+      <div id="filter-container" class="panel panel-default col-md-12" style="padding:20px;">
+			<div class="input-field col md8 s12">
+				<input type="search" class="validate search" id="filter">
+				<label for="filter">
+                    <span class="material-icons">
+                        search
+                    </span>
+                </label>
+			</div>
+     
+      <table class="table table-striped user-table table-inverse highlight centered responsive-table striped green accent-2" id='students' style="width:100%;">
+                <!-- Table Headings -->
+                 <thead>
+                   <tr class="white-text">
+                       <th>Table title 0</th>
+                       <th>Table title 1</th>
+                       <th>Table title 2</th>
+                       <th>Table title 3</th>
+                   </tr>
+                 </thead>
+                 
+                 <tbody>
           <tr>
             <td>
                 <p>
@@ -121,7 +125,7 @@
                   </label>
                 </p>
             </td>
-            <td class="person">Alvin</td>
+            <td class="filter-cell">Alvin</td>
             <td class="android">Eclair</td>
             <td class="cost">$0.87</td>
           </tr>
@@ -134,7 +138,7 @@
                   </label>
                 </p>
             </td>
-            <td class="person">Alan</td>
+            <td class="filter-cell">Alan</td>
             <td class="android">Jellybean</td>
             <td class="cost">$3.76</td>
           </tr>
@@ -147,15 +151,17 @@
                   </label>
                 </p>
             </td>
-            <td class="person">Jonathan</td>
+            <td class="filter-cell">Jonathan</td>
             <td class="android">Lollipop</td>
             <td class="cost">$7.00</td>
           </tr>
         </tbody>
-      </table>
-       
+                 
+			</table>
+       </div>
         
-      </div>
+      </div> 
+      
       
       <div class="row center">
         
@@ -276,7 +282,15 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script src="js/tableFilter.js"></script>
+  		<script>
+			//search filtering for table of students
+			$(document).ready(function(){
+				$('#filter-container').tableFilter({tableID: '#students', autofocus: true});
+			});
+		</script>
+
+ 
   
   <script type="text/javascript">
 
@@ -285,8 +299,10 @@
         };
 
         var listadoOne = new List('data-table-content', options);
+        
 
     </script>
+    
 
   </body>
 </html>
